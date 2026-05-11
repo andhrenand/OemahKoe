@@ -1,23 +1,10 @@
 import 'package:get/get.dart';
+import 'package:oemah_koe/app/data/dummy_data.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  final allData = dummyProperties;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
+  List<Map<String, dynamic>> get filteredData => allData
+      .where((item) => item['location'] == dummyUser["location"])
+      .toList();
 }
